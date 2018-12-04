@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.4'
-gem 'json', '~> 1.8.3'
+# gem 'rails', '4.2.4'
+gem 'rails', '~> 5.0.7'
+gem 'json'
 gem 'bootstrap-sass', '~> 3.3.6'
-# gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootsnap', '~> 1.1.0.pre', require: false
 gem 'sass-rails', '~> 5.0'
 gem 'sprockets-rails'
 gem 'uglifier', '>= 1.3.0'

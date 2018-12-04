@@ -1,60 +1,65 @@
 Rails.application.routes.draw do
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :product_details
-  resources :quote_details, :products
+  Rails.application.routes.draw do
 
-  authenticated :user do
-    root to: 'home#index', as: 'home'
-  end
+    resources :product_details
+    resources :quote_details, :products
 
-  unauthenticated :user do
-    root 'home#index'
-  end
+    authenticated :user do
+      root to: 'home#index', as: 'home'
+    end
 
-  # TODO: Define routes for the Admin auth and unauth paths. i.e. a dashboard or sign in???
-  # root :to => 'business_account#dashboard', :constraints => lambda { |request| request.env['warden'].user.class.name == 'Business' }, :as => "business_root"
-  # root :to => 'lender_account#dashboard', :constraints => lambda { |request| request.env['warden'].user.class.name == 'Lender' }, :as => "lender_root"
+    unauthenticated :user do
+      root 'home#index'
+    end
 
-  resources :sales, :quotes, :questionaires
+    # TODO: Define routes for the Admin auth and unauth paths. i.e. a dashboard or sign in???
+    # root :to => 'business_account#dashboard', :constraints => lambda { |request| request.env['warden'].user.class.name == 'Business' }, :as => "business_root"
+    # root :to => 'lender_account#dashboard', :constraints => lambda { |request| request.env['warden'].user.class.name == 'Lender' }, :as => "lender_root"
 
-  get 'home/index', to: 'home#index'
-  get 'home/exit', to: 'home#exit'
-  get 'home/pending', to: 'home#pending'
+    resources :sales, :quotes, :questionaires
 
-  get 'quotes/', to: 'quotes#show_quote'
+    get 'home/index', to: 'home#index'
+    get 'home/exit', to: 'home#exit'
+    get 'home/pending', to: 'home#pending'
 
-  post 'products/send_quote_request', to: 'products#send_quote_request'
+    get 'quotes/', to: 'quotes#show_quote'
 
-  devise_for :users,  controllers: {
-                        sessions: 'users/sessions',
-                        registrations: 'users/registrations',
-                        confirmations: 'users/confirmations'
+    post 'products/send_quote_request', to: 'products#send_quote_request'
+
+    devise_for :users,  controllers: {
+                          sessions: 'users/sessions',
+                          registrations: 'users/registrations',
+                          confirmations: 'users/confirmations'
+                        }
+
+    resources :update, :path => "/users/sessions"
+
+    devise_for :admins, controllers: {
+                          sessions: 'admins/sessions',
+                          registrations: 'admins/registrations',
+                          confirmations: 'admins/confirmations'
                       }
 
-  resources :update, :path => "/users/sessions"
+    devise_scope :admin do
+      get 'admins/signed_up', to: 'admins/registrations#index'
+      match 'admins/get_approved_users/:approved/:buttonId', to: 'admins/registrations#get_approved_users', via: [:get]
+      put 'admins/approve_user', to: 'admins/registrations#approve_user'
 
-  devise_for :admins, controllers: {
-                        sessions: 'admins/sessions',
-                        registrations: 'admins/registrations',
-                        confirmations: 'admins/confirmations'
-                    }
+      get 'admins/products/index', to: 'admins/products#index'
+      get 'admins/products/new', to: 'admins/products#new'
+      post 'admins/products/create', to: 'admins/products#create'
+      delete 'admins/products/:id', to: 'admins/products#destroy', as: 'destroy_admin_product'
 
-  devise_scope :admin do
-    get 'admins/signed_up', to: 'admins/registrations#index'
-    match 'admins/get_approved_users/:approved/:buttonId', to: 'admins/registrations#get_approved_users', via: [:get]
-    put 'admins/approve_user', to: 'admins/registrations#approve_user'
+      get 'admins/products/:product_id/product_details/:id/edit', to: 'admins/product_details#edit', as: 'edit_admin_product_detail'
+      post 'admins/product_details/create', to: 'admins/product_details#create'
+      # put 'admins/products/:product_id/product_details/:id', to: 'admins/product_details#update', as: 'update_admin_product_detail'
+      put 'admins/product_details/:id', to: 'admins/product_details#update', as: 'update_admin_product_detail'
+      delete 'admins/product_details/destroy/:id', to: 'admins/product_details#destroy', as: 'destroy_admin_product_detail'
+    end
 
-    get 'admins/products/index', to: 'admins/products#index'
-    get 'admins/products/new', to: 'admins/products#new'
-    post 'admins/products/create', to: 'admins/products#create'
-    delete 'admins/products/:id', to: 'admins/products#destroy', as: 'destroy_admin_product'
 
-    get 'admins/products/:product_id/product_details/:id/edit', to: 'admins/product_details#edit', as: 'edit_admin_product_detail'
-    post 'admins/product_details/create', to: 'admins/product_details#create'
-    # put 'admins/products/:product_id/product_details/:id', to: 'admins/product_details#update', as: 'update_admin_product_detail'
-    put 'admins/product_details/:id', to: 'admins/product_details#update', as: 'update_admin_product_detail'
-    delete 'admins/product_details/destroy/:id', to: 'admins/product_details#destroy', as: 'destroy_admin_product_detail'
   end
-
 
 end
