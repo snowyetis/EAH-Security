@@ -1,4 +1,4 @@
-class AddUnconfirmedEmailToAdmins < ActiveRecord::Migration
+class AddUnconfirmedEmailToAdmins < ActiveRecord::Migration[5.0]
   def change
     add_column :admins, :unconfirmed_email, :string
   end

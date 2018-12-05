@@ -1,4 +1,4 @@
-class AddParamsStatusTransactionIdPurchasedAtToRegistrations < ActiveRecord::Migration
+class AddParamsStatusTransactionIdPurchasedAtToRegistrations < ActiveRecord::Migration[5.0]
   def change
     add_column :registrations, :notification_params, :text
     add_column :registrations, :status, :string

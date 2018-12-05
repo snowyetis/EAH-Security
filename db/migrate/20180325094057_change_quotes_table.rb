@@ -1,4 +1,4 @@
-class ChangeQuotesTable < ActiveRecord::Migration
+class ChangeQuotesTable < ActiveRecord::Migration[5.0]
   def change
     remove_column :quotes, :approved
     remove_column :quotes, :pending

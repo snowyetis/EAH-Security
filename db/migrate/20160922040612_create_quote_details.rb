@@ -1,4 +1,4 @@
-class CreateQuoteDetails < ActiveRecord::Migration
+class CreateQuoteDetails < ActiveRecord::Migration[5.0]
   def change
     create_table :quote_details do |t|
       t.references :quote

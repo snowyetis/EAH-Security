@@ -1,4 +1,4 @@
-class CreateStatusTypeTable < ActiveRecord::Migration
+class CreateStatusTypeTable < ActiveRecord::Migration[5.0]
   def change
     create_table :quote_status_types do |t|
       t.string :status_type_name
