@@ -21,7 +21,7 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: mysql2
+  adapter: postgres
   encoding: utf8
   host: <%= ENV['DATABASE_HOST'] %>
   username: <%= ENV['DATABASE_USERNAME'] %>
