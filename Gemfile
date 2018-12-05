@@ -1,20 +1,20 @@
 source 'https://rubygems.org'
 
 # gem 'rails', '4.2.4'
-gem 'rails', '~> 5.0.7'
+gem 'rails', '~> 5.1.0'
 gem 'json'
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass'
 gem 'bootsnap', '~> 1.1.0.pre', require: false
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 gem 'sprockets-rails'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'jquery'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
-gem 'popper_js', '~> 1.11.1'
-gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'popper_js'
+gem 'jbuilder'
+gem 'sdoc'
 gem 'devise'
 gem 'cancancan'
 gem 'rolify'
@@ -27,7 +27,7 @@ gem 'smart_listing'
 gem 'kaminari'
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+# gem 'bcrypt'
 # Use Unicorn as the app server
 # gem 'unicorn'
 # Use Capistrano for deployment
@@ -46,7 +46,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'web-console'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
