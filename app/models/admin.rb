@@ -1,4 +1,4 @@
-class Admin < ActiveRecord::Base
+class Admin < ApplicationRecord
   has_many :products
 
   devise :database_authenticatable, :registerable,

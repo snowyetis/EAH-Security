@@ -1,3 +1,3 @@
-class RequesterType < ActiveRecord::Base
+class RequesterType < ApplicationRecord
   belongs_to :quote
 end

@@ -1,4 +1,4 @@
-class Quote < ActiveRecord::Base
+class Quote < ApplicationRecord
   before_save :default_values
 
   belongs_to :user

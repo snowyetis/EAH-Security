@@ -1,3 +1,3 @@
-class QuoteStatusType < ActiveRecord::Base
+class QuoteStatusType < ApplicationRecord
   belongs_to :quote
 end

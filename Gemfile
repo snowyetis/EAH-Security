@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # gem 'rails', '4.2.4'
-gem 'rails', '~> 5.1.0'
+gem 'rails', '~> 5.2.0'
 gem 'json'
 gem 'bootstrap-sass'
 gem 'bootsnap', '~> 1.1.0.pre', require: false
@@ -25,6 +25,7 @@ gem 'populator'
 gem 'breadcrumbs_on_rails'
 gem 'smart_listing'
 gem 'kaminari'
+gem 'listen'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt'

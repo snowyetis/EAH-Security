@@ -1,4 +1,4 @@
-class CardTransaction < ActiveRecord::Base
+class CardTransaction < ApplicationRecord
   belongs_to :card
   serialize :params
 

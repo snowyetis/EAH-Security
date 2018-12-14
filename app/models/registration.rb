@@ -1,4 +1,4 @@
-class Registration < ActiveRecord::Base
+class Registration < ApplicationRecord
   belongs_to :product
   has_one :card
   accepts_nested_attributes_for :card

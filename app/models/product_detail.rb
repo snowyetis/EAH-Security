@@ -1,4 +1,4 @@
-class ProductDetail < ActiveRecord::Base
+class ProductDetail < ApplicationRecord
   belongs_to :product
   # has_many :quotes, through: :product
 

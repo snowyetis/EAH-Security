@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   # Creation before
   before_validation :normalize_name, on: :create
   # and after steps

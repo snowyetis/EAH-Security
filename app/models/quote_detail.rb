@@ -1,4 +1,4 @@
-class QuoteDetail < ActiveRecord::Base
+class QuoteDetail < ApplicationRecord
   belongs_to :quote
   has_many :users, through: :quote
 
