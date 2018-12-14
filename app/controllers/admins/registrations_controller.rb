@@ -1,8 +1,8 @@
 class Admins::RegistrationsController < Devise::RegistrationsController
   load_and_authorize_resource
 
-  before_filter :configure_sign_up_params, only: [:create]
-  before_filter :configure_account_update_params, only: [:update, :approve_user]
+  before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_account_update_params, only: [:update, :approve_user]
   before_action :authenticate_admin!
   add_breadcrumb "Home", :home_index_path
 
