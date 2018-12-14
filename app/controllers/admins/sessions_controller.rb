@@ -1,9 +1,9 @@
 class Admins::SessionsController < Devise::SessionsController
-before_filter :configure_sign_in_params, only: [:create]
+before_action :configure_sign_in_params, only: [:create]
 before_action :hide_nav, only: [:new]
 
 # Prevent user from hitting admin.
-before_filter :authenticate_user!
+before_action :authenticate_user!
 before_action :set_admin_flag
 
   # GET /resource/sign_in
