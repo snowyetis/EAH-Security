@@ -9,7 +9,7 @@ module EAHSecurity
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.0
-
+    config.active_record.belongs_to_requred_by_default = false
     # config.action_controller.raise_on_unfiltered_parameters = false
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
