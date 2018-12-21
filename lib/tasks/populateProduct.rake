@@ -9,10 +9,10 @@ namespace :fillProduct do
     # ActiveRecord::Base.connection.reset_pk_sequence!('products')
 
     QuoteDetail.delete_all
-    # ActiveRecord::Base.connection.reset_pk_sequence!('quote_details')
+    # ActiveRecord::Base.connection.reset_pk_sequence!('products')
 
     Quote.delete_all
-    # ActiveRecord::Base.connection.reset_pk_sequence!('quotes')
+    # ActiveRecord::Base.connection.reset_pk_sequence!('Quote')
 
 
     @product = Product.create!(product_type: "locksmith", price: "420.50")
